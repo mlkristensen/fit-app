@@ -6,4 +6,6 @@ Fit-app
 
 Introduction
 ---------------------
-Coming soon
+fit-app project is a sports-app
+
+more to come
