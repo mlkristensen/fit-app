@@ -1,0 +1,144 @@
+<!-- <section>
+  <div class="page-header">
+    <h1>{{vm.activity._id ? 'Edit Activity' : 'New Activity'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.activityForm" class="form-horizontal" ng-submit="vm.save(vm.form.activityForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group col-md-12" show-errors>
+          <label class="control-label" for="name">Title</label>
+          <input name="title" type="text" ng-model="vm.activity.title" id="title" class="form-control" placeholder="Title" required>
+          <div ng-messages="vm.form.activityForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Activity title is required.</p>
+          </div>
+        </div>
+        <h3>Duration</h3>
+        <div class="form-group col-md-4" show-errors>
+          <label class="control-label" for="hours">Hours</label>
+          <input name="hours" type="text" ng-model="vm.activity.duration.hours" id="hours" class="form-control" placeholder="Hours" required>
+          <div ng-messages="vm.form.activityForm.duration.hours.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Activity hours is required.</p>
+          </div>
+        </div>
+        <div class="form-group col-md-4" show-errors>
+          <label class="control-label" for="hours">Minutes</label>
+          <input name="minutes" type="text" ng-model="vm.activity.duration.minutes" id="minutes" class="form-control" placeholder="Minutes" required>
+          <div ng-messages="vm.form.activityForm.duration.minutes.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Activity minutess is required.</p>
+          </div>
+        </div>
+        <div class="form-group col-md-4" show-errors>
+          <label class="control-label" for="hours">Hours</label>
+          <input name="seconds" type="text" ng-model="vm.activity.duration.seconds" id="seconds" class="form-control" placeholder="Seconds" required>
+          <div ng-messages="vm.form.activityForm.duration.seconds.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Activity seconds is required.</p>
+          </div>
+        </div>
+        <h3>Distance</h3>
+        <div class="form-group col-md-4" show-errors>
+          <label class="control-label" for="km">KM</label>
+          <input name="km" type="text" ng-model="vm.activity.distance.km" id="km" class="form-control" placeholder="Km" required>
+          <div ng-messages="vm.form.activityForm.distance.km.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Activity km distance is required.</p>
+          </div>
+        </div>
+        <div class="form-group col-md-4" show-errors>
+          <label class="control-label" for="m">M</label>
+          <input name="m" type="text" ng-model="vm.activity.distance.m" id="m" class="form-control" placeholder="M" required>
+          <div ng-messages="vm.form.activityForm.distance.m.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Activity m distance is required.</p>
+          </div>
+        </div>
+        <div class="form-group col-md-4" show-errors>
+          <label class="control-label" for="avgSpeed">Avg. Speed</label>
+          <input name="avgSpeed" type="text" ng-model="vm.activity.avgSpeed" id="avgSpeed" class="form-control" placeholder="Avg speed" required>
+          <div ng-messages="vm.form.activityForm.avgSpeed.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Activity avg speed distance is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.activity._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section> -->
+
+<!--
+  MATERIAL DESIGN
+-->
+<section ng-cloak>
+  <div layout="column">
+    <md-content layout-padding>
+      <h1 class="md-display-3">{{vm.activity._id ? 'Edit Activity' : 'New Activity'}}</h1>
+      <form name="vm.form.activityForm" ng-submit="vm.save(vm.form.activityForm.$valid)" novalidate>
+      <h3>Title</h3>
+        <div layout="column">
+          <md-input-container class="form-group md-block" show-errors>
+            <label>Title</label>
+            <input name="title" type="text" ng-model="vm.activity.title" required>
+            <div ng-messages="vm.form.activityForm.title.$error">
+              <p class="help-block error-text" ng-message="required">Sport name is required.</p>
+            </div>
+          </md-input-container>
+        </div>
+        <h3>Sport</h3>
+        <div layout="row">
+          <md-input-container>
+            <label>Sports type</label>
+            <md-select ng-model="vm.activity.sport">
+              <md-option ng-repeat="sport in vm.sports" value="{{sport._id}}">{{sport.name}}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+        <div class="form-group">
+          <label for="sel1">Select sport:</label>
+          <select ng-model="vm.activity.sport" class="form-control" id="sel1">
+            <option ng-repeat="sport in vm.sports" value="{{sport._id}}">{{sport.name}}</option>
+          </select>
+        </div>
+        <h3>Date</h3>
+          <md-content class="md-block">
+            <md-datepicker ng-model="vm.activity.date" md-max-date="maxDate" md-placeholder="Enter date"></md-datepicker>
+          </md-content>
+        <h3>Duration</h3>
+        <div layout="row">
+          <md-input-container class="form-group md-block" show-errors>
+            <label>Hours</label>
+            <input name="hours" type="text" ng-model="vm.activity.duration.hours" required>
+          </md-input-container>
+          <md-input-container class="form-group md-block" show-errors>
+            <label>Minutes</label>
+            <input name="minutes" type="text" ng-model="vm.activity.duration.minutes" required>
+          </md-input-container>
+          <md-input-container class="form-group md-block" show-errors>
+            <label>Seconds</label>
+            <input name="seconds" type="text" ng-model="vm.activity.duration.seconds" required>
+          </md-input-container>
+        </div>
+        <h3>Distance</h3>
+        <div layout="row">
+          <md-input-container class="form-group md-block" show-errors>
+            <label>Kilometers</label>
+            <input name="km" type="text" ng-model="vm.activity.distance.km" ng-pattern="/^[0-9]" required>
+          </md-input-container>
+          <md-input-container class="form-group md-block" show-errors>
+            <label>Meters</label>
+            <input name="m" type="text" ng-model="vm.activity.distance.m" ng-pattern="/^[0-9]" required>
+          </md-input-container>
+        </div>
+        <div layout="column">
+          <md-button type="submit" class="md-raised md-primary">{{vm.activity._id ? 'Update' : 'Create'}}</md-button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </form>
+    </md-content>
+  </div>
+</section>
+
+

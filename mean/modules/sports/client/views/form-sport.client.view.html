@@ -1,0 +1,44 @@
+<!-- <section>
+  <div class="page-header">
+    <h1>{{vm.sport._id ? 'Edit Sport' : 'New Sport type'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.sportForm" class="form-horizontal" ng-submit="vm.save(vm.form.sportForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.sport.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.sportForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Sport name is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.sport._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section> -->
+<section>
+  <div layout="column">
+    <md-content layout-padding>
+      <h1 class="md-display-3">{{vm.sport._id ? 'Edit Sport' : 'New Sport type'}}</h1>
+      <form name="vm.form.sportForm" ng-submit="vm.save(vm.form.sportForm.$valid)" novalidate>
+        <md-input-container class="md-block" show-errors>
+          <label>Sports type</label>
+          <input name="name" ng-model="vm.sport.name" required>
+          <div ng-messages="vm.form.sportForm.name.$error">
+            <p class="help-block error-text" ng-message="required">Sport name is required.</p>
+          </div>
+        </md-input-container>
+        <md-button type="submit" class="md-raised md-primary">{{vm.sport._id ? 'Update' : 'Create'}}</md-button>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </form>
+    </md-content>
+  </div>
+</section>
