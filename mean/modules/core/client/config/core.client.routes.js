@@ -40,3 +40,10 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
     });
   }
 ]);
+// Adding theme settings for material design -> MLK
+angular.module('core').config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+        .primaryPalette('blue-grey')
+        .accentPalette('grey')
+        .warnPalette('red');
+});
