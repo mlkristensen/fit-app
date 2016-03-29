@@ -13,7 +13,7 @@
       title: 'Sports',
       state: 'sports',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['admin']
     });
 
     // Add the dropdown list item
@@ -26,7 +26,7 @@
     Menus.addSubMenuItem('topbar', 'sports', {
       title: 'Create Sport',
       state: 'sports.create',
-      roles: ['user']
+      roles: ['admin']
     });
   }
 })();

@@ -8,8 +8,8 @@
        class="list-group-item">
       <small class="list-group-item-text">
       <h3 data-ng-bind="activity.title"></h3>
-        Posted on
-        <span data-ng-bind="activity.created | date:'mediumDate'"></span>
+        Active on
+        <span data-ng-bind="activity.date | date:'mediumDate'"></span>
         by
         <span data-ng-if="activity.user" data-ng-bind="activity.user.displayName"></span>
         <span data-ng-if="!activity.user">Deleted User</span>
