@@ -39,9 +39,8 @@ var ActivitySchema = new Schema({
     ref: 'User'
   },
   sport: {
-    type: String,
-    default: '',
-    trim: true
+    type: Schema.ObjectId,
+    ref: 'Sport'
   }
 });
 

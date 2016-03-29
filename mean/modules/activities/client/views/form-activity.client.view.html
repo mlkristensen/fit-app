@@ -94,12 +94,6 @@
             </md-select>
           </md-input-container>
         </div>
-        <div class="form-group">
-          <label for="sel1">Select sport:</label>
-          <select ng-model="vm.activity.sport" class="form-control" id="sel1">
-            <option ng-repeat="sport in vm.sports" value="{{sport._id}}">{{sport.name}}</option>
-          </select>
-        </div>
         <h3>Date</h3>
           <md-content class="md-block">
             <md-datepicker ng-model="vm.activity.date" md-max-date="maxDate" md-placeholder="Enter date"></md-datepicker>
@@ -140,5 +134,3 @@
     </md-content>
   </div>
 </section>
-
-
