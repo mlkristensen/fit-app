@@ -19,7 +19,9 @@ module.exports = {
         'public/lib/angular-ui-utils/ui-utils.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
-        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
+        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        //'public/lib/lodash/dist/lodash.js', // Lodash for google maps api
+        'public/lib/ngmap/build/scripts/ng-map.min.js' // Google maps
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },

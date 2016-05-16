@@ -31,6 +31,7 @@
   <!-- Fav Icon -->
   <link href="{{favicon}}" rel="shortcut icon" type="image/x-icon">
 
+
   <!-- Application CSS Files -->
   {% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">{% endfor %}
 </head>
@@ -48,8 +49,8 @@
     var user = {{ user | json | safe }};
   </script>
 
-  <!-- Google Maps API with key
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJ3uWhIQpyzgh4ytb5dtnC38jRZmasbCM&callback=initMap"></script>-->
+  <!-- Google Maps API with key -->
+  <script src="http://maps.googleapis.com/maps/api/js"></script>
 
   <!--Load The Socket.io File-->
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
