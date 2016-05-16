@@ -9,7 +9,7 @@ var activitiesPolicy = require('../policies/activities.server.policy'),
 module.exports = function(app) {
   // Activities Routes
   app.route('/api/activities').all(activitiesPolicy.isAllowed)
-    .get(activities.list)
+    .get(activities.listByID)
     .post(activities.create);
 
   app.route('/api/activities/:activityId').all(activitiesPolicy.isAllowed)
