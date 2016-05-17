@@ -25,9 +25,14 @@
   <p class="lead" data-ng-bind="vm.activity.content"></p>
   <div class="row">
     <div class="col-md-12">
-      <map zoom="7" center="[56.00, 10.02]" style="height:500px">
-        <shape>
-
+      <map zoom="10" center="[55.40, 11.00]" style="height:500px">
+        <marker position="55.349618811160326, 11.101303026080132" title="Start"></marker>
+        <shape name="polyline"
+          path="{{path}}"
+          geodesic="true"
+          stroke-color="#FF0000"
+          stroke-opacity="1.0"
+          stroke-weight="3">
         </shape>
       </map>
     </div>

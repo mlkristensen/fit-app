@@ -19,6 +19,9 @@
     vm.save = save;
     // Connecting SportsService methods to this controller -> added by MLK
     vm.sports = SportsService.listSports();
+    $scope.path = vm.activity.trackpoint.map(function(point) {
+      return [point.lat, point.lon];
+    });
 
     $scope.maxDate = new Date();
 
