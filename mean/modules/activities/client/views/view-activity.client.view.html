@@ -24,7 +24,7 @@
   </small>
   <p class="lead" data-ng-bind="vm.activity.content"></p>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
       <map zoom="10" center="[55.40, 11.00]" style="height:500px">
         <marker position="55.349618811160326, 11.101303026080132" title="Start"></marker>
         <shape name="polyline"
@@ -35,6 +35,22 @@
           stroke-weight="3">
         </shape>
       </map>
+    </div>
+    <div class="col-md-3">
+      <h4>Date</h4>
+      <p data-ng-bind="vm.activity.date | date:'mediumDate'"></p>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Distance</h2>
+      <h2 data-ng-bind="vm.activity.distance.m"></h2>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
     </div>
   </div>
 
