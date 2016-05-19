@@ -12,6 +12,14 @@ module.exports = function(app) {
     .get(activities.listByID)
     .post(activities.create);
 
+  /* Used for counting activities -> Added by MLK
+  * Get the function actCount
+  * From activities.server.controller
+  */
+  app.route('/api/activities/actCount').all()
+    .get(activities.actCount);
+
+
   app.route('/api/activities/:activityId').all(activitiesPolicy.isAllowed)
     .get(activities.read)
     .put(activities.update)

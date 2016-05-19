@@ -58,7 +58,7 @@ exports.changeProfilePicture = function (req, res) {
   var message = null;
   var upload = multer(config.uploads.profileUpload).single('newProfilePicture');
   var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
-  
+
   // Filtering to upload only images
   upload.fileFilter = profileUploadFileFilter;
 
@@ -100,4 +100,23 @@ exports.changeProfilePicture = function (req, res) {
  */
 exports.me = function (req, res) {
   res.json(req.user || null);
+};
+
+/**
+ * Count of Users -> Added by MLK
+ * Controller call the MongoDB for count users
+ */
+exports.usrCount = function(req, res) {
+  User.count({},
+    function(err, usersCount) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+    } else {
+        var data = {};
+        data.count = usersCount;
+        res.jsonp(data);
+    }
+  });
 };
