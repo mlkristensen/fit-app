@@ -11,6 +11,14 @@ module.exports = function (app) {
   app.route('/api/users/password').post(users.changePassword);
   app.route('/api/users/picture').post(users.changeProfilePicture);
 
+  /* Used for counting users -> Added by MLK
+  * Get the function usrCount
+  * From users.profile.server.controller
+  */
+  app.route('/api/users/usrCount').all()
+    .get(users.usrCount);
+
+
   // Finish by binding the user middleware
   app.param('userId', users.userByID);
 };

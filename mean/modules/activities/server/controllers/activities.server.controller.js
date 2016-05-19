@@ -133,3 +133,22 @@ exports.activityByID = function(req, res, next, id) {
     next();
   });
 };
+
+/**
+ * Count of Activities -> Added by MLK
+ * Controller call the MongoDB for count activities
+ */
+exports.actCount = function(req, res) {
+  Activity.count({},
+    function(err, activitiesCount) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+    } else {
+        var data = {};
+        data.count = activitiesCount;
+        res.jsonp(data);
+    }
+  });
+};
