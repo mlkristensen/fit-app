@@ -26,9 +26,9 @@
   <div class="row">
     <div class="col-md-9">
       <map zoom="10" center="[55.349618811160326, 11.101303026080132]" style="height:500px">
-        <marker position="{{startpoint}}" title="Start"></marker>
+        <marker position="{{vm.startpoint}}" title="Start"></marker>
         <shape name="polyline"
-          path="{{path}}"
+          path="{{vm.path}}"
           geodesic="true"
           stroke-color="#FF0000"
           stroke-opacity="1.0"
@@ -37,21 +37,15 @@
       </map>
     </div>
     <div class="col-md-3">
+      <h4>Sport</h4>
+      <p data-ng-bind="vm.activity.date | date:'mediumDate'"></p>
+      <p data-ng-bind="{{thissporttype}}"></p>
+      <p data-ng-bind="{{thissporttypes}}"></p>
+
       <h4>Date</h4>
       <p data-ng-bind="vm.activity.date | date:'mediumDate'"></p>
       <h4>Distance</h4>
       <p data-ng-bind="vm.activity.distance"></p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <h2>Distance</h2>
-      <h2 data-ng-bind="vm.activity.distance.m"></h2>
-    </div>
-    <div class="col-md-4">
-
-    </div>
-    <div class="col-md-4">
     </div>
   </div>
 
