@@ -20,7 +20,7 @@
     // Connecting SportsService methods to this controller -> added by MLK
     vm.sports = SportsService.listSports();
     // Activity starting point used for marker in map
-    $scope.startpoint = vm.activity.trackpoint[0].lat + "," + vm.activity.trackpoint[0].lon;
+    $scope.startpoint = vm.activity.trackpoint[0].lat + ',' + vm.activity.trackpoint[0].lon;
 
     // Path for activity trackpoints
     $scope.path = vm.activity.trackpoint.map(function(point) {

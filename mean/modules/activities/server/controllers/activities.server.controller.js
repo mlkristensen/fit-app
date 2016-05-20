@@ -145,10 +145,10 @@ exports.actCount = function(req, res) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
         });
-    } else {
+      } else {
         var data = {};
         data.count = activitiesCount;
         res.jsonp(data);
-    }
-  });
+      }
+    });
 };

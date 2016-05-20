@@ -113,10 +113,10 @@ exports.usrCount = function(req, res) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
         });
-    } else {
+      } else {
         var data = {};
         data.count = usersCount;
         res.jsonp(data);
-    }
-  });
+      }
+    });
 };
