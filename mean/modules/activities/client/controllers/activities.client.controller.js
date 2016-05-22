@@ -20,41 +20,8 @@
     // Connecting SportsService methods to this controller -> added by MLK
     vm.sports = SportsService.listSports();
     // Activity starting point used for marker in map
-    //vm.startpoint = vm.activity.trackpoint[0].lat + ',' + vm.activity.trackpoint[0].lon;
-
-    // Path for activity trackpoints
-    vm.activity.path = vm.activity.trackpoint.map(function(point) {
-      return [point.lat, point.lon];
-    });
 
     $scope.maxDate = new Date();
-
-    $scope.thissporttype = SportsService.listSports()
-      angular.forEach($scope.thissporttype, function(value, index){
-        if(value._id === vm.activity._id){
-          return true;
-        }
-        else{
-          return false;
-        }
-        return (value._id.tostring());
-
-      });
-
-
-    $scope.thissporttypes = vm.sports.map(function(type){
-      for (var sport in vm.sports) {
-        console.log(sport);
-
-        if(vm.sports.hasOwnProperty(key)){
-          return (key + " -> " + vm.sports[key]);
-
-        }
-        else{
-          return 'fejl på else';
-        }
-      }
-    });
 
     // Remove existing Activity
     function remove() {
