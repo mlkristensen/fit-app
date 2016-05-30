@@ -1,0 +1,65 @@
+<section>
+  <div class="page-header">
+    <h1 data-ng-bind="vm.activity.title"></h1>
+  </div>
+  <div class="pull-right"
+       data-ng-show="vm.activity.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       data-ui-sref="activities.edit({ activityId: vm.activity._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" data-ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span data-ng-bind="vm.activity.created | date:'mediumDate'"></span>
+      by
+      <span data-ng-if="vm.activity.user"
+            data-ng-bind="vm.activity.user.displayName"></span>
+      <span data-ng-if="!vm.activity.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" data-ng-bind="vm.activity.content"></p>
+  <section>
+    <div class="row">
+      <div class="col-md-9">
+        <map zoom="11" center="{{startpoint}}" style="height:500px">
+          <marker position="{{startpoint}}" title="Start"></marker>
+          <shape name="polyline"
+          path="{{pathway}}"
+          geodesic="true"
+          stroke-color="#FF0000"
+          stroke-opacity="1.0"
+          stroke-weight="3">
+        </shape>
+      </map>
+    </div>
+    <div class="col-md-3">
+      <div class="infobox">
+        <h4>Sport</h4>
+        <div data-ng-repeat="sport in vm.sports | filter:{'_id': vm.activity.sport}:true">
+          <p data-ng-bind="sport.name"></p>
+        </div>
+      </div>
+      <div class="infobox">
+        <h4>Date</h4>
+        <p data-ng-bind="vm.activity.date | date:'mediumDate'"></p>
+      </div>
+      <div class="infobox">
+        <h4>Distance</h4>
+        <p>{{km}},{{m}} km</p>
+      </div>
+      <div class="infobox">
+        <h4>Duration</h4>
+        <p>hours: {{hours}}</p>
+        <p>min: {{minutes}}</p>
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+  </section>
