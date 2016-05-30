@@ -9,8 +9,16 @@ var activitiesPolicy = require('../policies/activities.server.policy'),
 module.exports = function(app) {
   // Activities Routes
   app.route('/api/activities').all(activitiesPolicy.isAllowed)
-    .get(activities.list)
+    .get(activities.listByID)
     .post(activities.create);
+
+  /* Used for counting activities -> Added by MLK
+  * Get the function actCount
+  * From activities.server.controller
+  */
+  app.route('/api/activities/actCount').all()
+    .get(activities.actCount);
+
 
   app.route('/api/activities/:activityId').all(activitiesPolicy.isAllowed)
     .get(activities.read)

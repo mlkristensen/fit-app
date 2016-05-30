@@ -71,44 +71,41 @@
   MATERIAL DESIGN
 -->
 <section ng-cloak>
-  <div layout="column">
+  <div layout="column" class="md-inline-form">
     <md-content layout-padding>
-      <h1 class="md-display-3">{{vm.activity._id ? 'Edit Activity' : 'New Activity'}}</h1>
+      <h1 class="md-display-2">{{vm.activity._id ? 'Edit Activity' : 'New Activity'}}</h1>
       <form name="vm.form.activityForm" ng-submit="vm.save(vm.form.activityForm.$valid)" novalidate>
-      <h3>Title</h3>
-        <div layout="column">
-          <md-input-container class="form-group md-block" show-errors>
+      <h3>Title and date</h3>
+        <div layout-gt-xs="row">
+          <md-input-container class="form-group md-block" show-errors flex-gt-xs>
             <label>Title</label>
             <input name="title" type="text" ng-model="vm.activity.title" required>
             <div ng-messages="vm.form.activityForm.title.$error">
-              <p class="help-block error-text" ng-message="required">Sport name is required.</p>
+              <p class="help-block error-text" ng-message="required">Give your activity a title - it´s required.</p>
             </div>
           </md-input-container>
+          <md-datepicker ng-model="vm.activity.date" md-max-date="maxDate" md-placeholder="Enter date"></md-datepicker>
         </div>
         <h3>Sport</h3>
         <div layout="row">
           <md-input-container>
             <label>Sports type</label>
-            <md-select ng-model="vm.activity.sport">
+            <md-select ng-model="vm.activity.sport" required>
               <md-option ng-repeat="sport in vm.sports" value="{{sport._id}}">{{sport.name}}</md-option>
             </md-select>
           </md-input-container>
         </div>
-        <h3>Date</h3>
-          <md-content class="md-block">
-            <md-datepicker ng-model="vm.activity.date" md-max-date="maxDate" md-placeholder="Enter date"></md-datepicker>
-          </md-content>
         <h3>Duration</h3>
         <div layout="row">
-          <md-input-container class="form-group md-block" show-errors>
+          <md-input-container class="md-block" flex-gt-sm>
             <label>Hours</label>
             <input name="hours" type="text" ng-model="vm.activity.duration.hours" required>
           </md-input-container>
-          <md-input-container class="form-group md-block" show-errors>
+          <md-input-container class="md-block" flex-gt-sm>
             <label>Minutes</label>
             <input name="minutes" type="text" ng-model="vm.activity.duration.minutes" required>
           </md-input-container>
-          <md-input-container class="form-group md-block" show-errors>
+          <md-input-container class="md-block" flex-gt-sm>
             <label>Seconds</label>
             <input name="seconds" type="text" ng-model="vm.activity.duration.seconds" required>
           </md-input-container>
@@ -132,5 +129,15 @@
         </div>
       </form>
     </md-content>
+  </div>
+  <div layout="row">
+    <h3 class="md-display-2">OR</h3>
+  </div>
+  <div>
+    <form class="" action="" method="post">
+      <i class="material-icons"></i>
+      <input type="file" name="name" value="">
+      <md-button type="submit" name="upload" class="md-raised md-primary">upload</md-button>
+    </form>
   </div>
 </section>

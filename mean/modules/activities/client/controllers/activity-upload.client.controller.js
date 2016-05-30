@@ -1,14 +1,13 @@
-(function () {
+(function() {
   'use strict';
 
-  // Activities controller
   angular
     .module('activities')
-    .controller('ActivitiesController', ActivitiesController);
+    .controller('ActivityUploadController', ActivityUploadController);
 
-  ActivitiesController.$inject = ['$scope', '$state', 'Authentication', 'activityResolve', 'SportsService'];
+  ActivityUploadController.$inject = ['$scope', '$state', 'Authentication', 'activityResolve', 'SportsService'];
 
-  function ActivitiesController ($scope, $state, Authentication, activity, SportsService) {
+  function ActivityUploadController ($scope, $state, Authentication, activity, SportsService) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -20,6 +19,17 @@
     // Connecting SportsService methods to this controller -> added by MLK
     vm.sports = SportsService.listSports();
     // Activity starting point used for marker in map
+    $scope.startpoint = vm.activity.trackpoint[0].lat + ',' + vm.activity.trackpoint[0].lon;
+    $scope.km = vm.activity.distance[0].km;
+    $scope.m = vm.activity.distance[0].m;
+
+    $scope.hours = vm.activity.duration[0].hours;
+    $scope.minutes = vm.activity.duration[0].minutes;
+    // Path for activity trackpoints
+    $scope.pathway = vm.activity.trackpoint.map(function(point) {
+      return [point.lat, point.lon];
+    });
+    //console.log(pathway);
 
     $scope.maxDate = new Date();
 

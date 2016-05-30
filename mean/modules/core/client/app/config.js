@@ -4,8 +4,18 @@
 var ApplicationConfiguration = (function () {
   // Init module configuration options
   var applicationModuleName = 'mean';
-  // ngMaterial added for Angular Material
-  var applicationModuleVendorDependencies = ['ngResource', 'ngAnimate', 'ngMessages', 'ui.router', 'ui.bootstrap', 'ui.utils', 'angularFileUpload', 'ngMaterial'];
+  // ngMaterial added for Angular Material - ngMap added for google maps
+  var applicationModuleVendorDependencies = [
+    'ngResource',
+    'ngAnimate',
+    'ngMessages',
+    'ui.router',
+    'ui.bootstrap',
+    'ui.utils',
+    'angularFileUpload',
+    'ngMaterial',
+    'ngMap'
+  ];
 
   // Add a new vertical module
   var registerModule = function (moduleName, dependencies) {

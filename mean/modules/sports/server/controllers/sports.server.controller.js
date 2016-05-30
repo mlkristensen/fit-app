@@ -80,7 +80,7 @@ exports.delete = function(req, res) {
 /**
  * List of Sports
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
   Sport.find().sort('-created').populate('user', 'displayName').exec(function(err, sports) {
     if (err) {
       return res.status(400).send({

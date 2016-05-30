@@ -23,4 +23,43 @@
     </em>
   </small>
   <p class="lead" data-ng-bind="vm.activity.content"></p>
-</section>
+  <section>
+    <div class="row">
+      <div class="col-md-9">
+        <map zoom="11" center="{{startpoint}}" style="height:500px">
+          <marker position="{{startpoint}}" title="Start"></marker>
+          <shape name="polyline"
+          path="{{pathway}}"
+          geodesic="true"
+          stroke-color="#FF0000"
+          stroke-opacity="1.0"
+          stroke-weight="3">
+        </shape>
+      </map>
+    </div>
+    <div class="col-md-3">
+      <div class="infobox">
+        <h4>Sport</h4>
+        <div data-ng-repeat="sport in vm.sports | filter:{'_id': vm.activity.sport}:true">
+          <p data-ng-bind="sport.name"></p>
+        </div>
+      </div>
+      <div class="infobox">
+        <h4>Date</h4>
+        <p data-ng-bind="vm.activity.date | date:'mediumDate'"></p>
+      </div>
+      <div class="infobox">
+        <h4>Distance</h4>
+        <p>{{km}},{{m}} km</p>
+      </div>
+      <div class="infobox">
+        <h4>Duration</h4>
+        <p>hours: {{hours}}</p>
+        <p>min: {{minutes}}</p>
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+  </section>

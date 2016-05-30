@@ -81,7 +81,7 @@ exports.delete = function(req, res) {
 /**
  * List of Activities
  */
-exports.list = function(req, res) { 
+exports.list = function(req, res) {
   Activity.find().sort('-created').populate('user', 'displayName').exec(function(err, activities) {
     if (err) {
       return res.status(400).send({
@@ -92,6 +92,23 @@ exports.list = function(req, res) {
     }
   });
 };
+
+/**
+ * List of Activities
+ * Added input for this specific user in find -> MLK
+ */
+exports.listByID = function(req, res) {
+  Activity.find({ user : req.user }).sort('-created').populate('user', 'displayName').exec(function(err, activities) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.jsonp(activities);
+    }
+  });
+};
+
 
 /**
  * Activity middleware
@@ -117,4 +134,21 @@ exports.activityByID = function(req, res, next, id) {
   });
 };
 
-
+/**
+ * Count of Activities -> Added by MLK
+ * Controller call the MongoDB for count activities
+ */
+exports.actCount = function(req, res) {
+  Activity.count({},
+    function(err, activitiesCount) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        var data = {};
+        data.count = activitiesCount;
+        res.jsonp(data);
+      }
+    });
+};

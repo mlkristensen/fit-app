@@ -30,6 +30,10 @@ var ActivitySchema = new Schema({
     km: Number,
     m: Number
   }],
+  trackpoint: [{
+    lat: Number,
+    lon: Number
+  }],
   created: {
     type: Date,
     default: Date.now
